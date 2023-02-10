@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:jsk_app/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -47,7 +46,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    final emailController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -63,57 +62,9 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black,
         ),
         backgroundColor: Colors.white,
-        leading: Image.asset('assets/images/logo.png'),
+        leading: Image.asset('assets/images/logo.jpeg'),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.green,
-              ),
-              child: Center(
-                  child: Column(
-                children: const [
-                  Icon(
-                    Icons.person,
-                    size: 75.0,
-                    color: Color.fromARGB(255, 223, 221, 221),
-                  ),
-                  Text(
-                    'Welcome, Admin',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              )),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.home,
-              ),
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const HomePage()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.login,
-              ),
-              title: const Text('Login as Administratior'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ), //--------appbar
+      //--------appbar
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 0),
         width: double.infinity,
@@ -235,6 +186,9 @@ class _HomePageState extends State<HomePage> {
                               //onPressed: () {},
                               child: Text("Login")),
                         ),
+                        SizedBox(
+                          height: 534,
+                        ),
                       ],
                     ),
                   ),
@@ -260,5 +214,3 @@ class _HomePageState extends State<HomePage> {
     }
   }
 }
-
-

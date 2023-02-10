@@ -54,7 +54,7 @@ class _AdminPanelState extends State<AdminPanel> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset('assets/images/logo.png'),
+        leading: Image.asset('assets/images/logo.jpeg'),
         title: const Text(
           "Admin Module",
           style: TextStyle(color: Colors.black),
@@ -410,7 +410,43 @@ class _AdminPanelState extends State<AdminPanel> {
                       ));
                     },
                     child: Text("Update Document"),
-                  )
+                  ),
+
+                  SizedBox(
+                          height: 60, //height of button
+                          width: 150, //width of button
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Color.fromARGB(255, 70, 139,
+                                      243), //background color of button
+                                  //border width and color
+                                  elevation: 3, //elevation of button
+                                  shape: RoundedRectangleBorder(
+                                      //to set border radius to button
+                                      borderRadius: BorderRadius.circular(30)),
+                                  padding: EdgeInsets.all(
+                                      20) //content padding inside button
+                                  ),
+                              onPressed: () {
+                      updateDocument(dropdownValue!, subServicesValue!);
+                      documentController.text = "";
+                      ScaffoldMessenger.of(context)
+                          .showMaterialBanner(MaterialBanner(
+                        padding: const EdgeInsets.all(20),
+                        content: const Text("Documents Updated."),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context)
+                                    .hideCurrentMaterialBanner();
+                              },
+                              child: Text("Ok"))
+                        ],
+                      ));
+                    },
+                              //onPressed: () {},
+                              child: Text("Update Document")),
+                        ),
                 ],
               ),
             ),
